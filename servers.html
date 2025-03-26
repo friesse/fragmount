@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS:GO Servers</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Additional styles specific to the Servers page */
+        .servers-container {
+            background: linear-gradient(to bottom, rgba(32, 55, 82, 0.5) 0%, rgba(17, 26, 38, 0.5) 80%);
+            padding: 20px;
+            border-radius: 4px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+        }
+
+        .server-section {
+            margin-bottom: 30px;
+        }
+
+        .server-title {
+            font-size: 20px;
+            color: #67c1f5;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(103, 193, 245, 0.3);
+            padding-bottom: 10px;
+        }
+
+        .server-content {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #c6d4df;
+        }
+
+        .server-status {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .status-card {
+            background: rgba(38, 64, 95, 0.4);
+            padding: 15px;
+            border-radius: 4px;
+            flex: 1;
+            min-width: 200px;
+            position: relative;
+        }
+
+        .status-indicator {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+
+        .status-online {
+            background-color: #4CAF50;
+            box-shadow: 0 0 5px #4CAF50;
+        }
+
+        .status-issues {
+            background-color: #FF9800;
+            box-shadow: 0 0 5px #FF9800;
+        }
+
+        .status-offline {
+            background-color: #F44336;
+            box-shadow: 0 0 5px #F44336;
+        }
+
+        .status-name {
+            font-size: 16px;
+            color: #fff;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .status-details {
+            font-size: 12px;
+            color: #8ba5b7;
+        }
+
+        .status-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .status-stat {
+            text-align: center;
+            flex: 1;
+        }
+
+        .stat-value {
+            font-size: 18px;
+            color: #67c1f5;
+            font-weight: bold;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            color: #8ba5b7;
+            text-transform: uppercase;
+        }
+
+        .server-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .server-table th,
+        .server-table td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        .server-table th {
+            background-color: rgba(38, 64, 95, 0.8);
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .server-table tr:nth-child(odd) {
+            background-color: rgba(38, 64, 95, 0.3);
+        }
+
+        .server-table tr:nth-child(even) {
+            background-color: rgba(38, 64, 95, 0.1);
+        }
+
+        .region-map {
+            background-color: #17202f;
+            height: 300px;
+            border-radius: 4px;
+            margin: 20px 0;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 20px;
+            text-transform: uppercase;
+        }
+
+        .ping-good {
+            color: #4CAF50;
+        }
+
+        .ping-medium {
+            color: #FF9800;
+        }
+
+        .ping-poor {
+            color: #F44336;
+        }
+
+        .server-maintenance {
+            background-color: rgba(255, 152, 0, 0.1);
+            border-left: 3px solid #FF9800;
+            padding: 15px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="global-header">
+        <div class="content">
+            <div class="logo">
+                <a href="index.html"><div class="logo-placeholder">STEAM</div></a>
+            </div>
+            <div class="menu">
+                <a href="performance.html">PERFORMANCE</a>
+                <a href="#">COMMUNITY</a>
+                <a href="servers.html">SERVERS</a>
+                <a href="support.html">SUPPORT</a>
+            </div>
+            <div class="global-actions">
+                <div class="install-steam">
+                    <a href="#">Install Steam</a>
+                </div>
+                <div class="user-actions">
+                    <a href="#">login</a> | <a href="#">language</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="main-content">
+        <div class="store-nav">
+            <div class="store-nav-inner">
+                <div class="store-nav-left">
+                    <a href="updates.html">UPDATES</a>
+                    <a href="operations.html">OPERATIONS</a>
+                    <a href="#">TOURNAMENTS</a>
+                    <a href="#">NEWS</a>
+                    <a href="#">DISCORD</a>
+                </div>
+                <div class="store-nav-right">
+                    <div class="search">
+                        <div class="date-time" id="date-time">Loading date and time...</div>
+                    </div>
+                    <div class="cart">
+                        <a href="#" class="cart-btn"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="app-page">
+            <div class="app-header">
+                <div class="app-title">
+                    <h1>CS:GO SERVERS</h1>
+                </div>
+            </div>
+
+            <div class="servers-container">
+                <div class="server-section">
+                    <div class="server-title">Current Server Status</div>
+                    <div class="server-content">
+                        <p>Below you can find the current status of CS:GO game servers across all regions. Data is updated every 5 minutes.</p>
+
+                        <div class="server-maintenance">
+                            <strong>Scheduled Maintenance:</strong> EU North servers will undergo maintenance on March 30, 2025 from 03:00 to 07:00 UTC.
+                        </div>
+
+                        <div class="server-status">
+                            <div class="status-card">
+                                <div class="status-name"><span class="status-indicator status-online"></span> US East</div>
+                                <div class="status-details">Last updated: 5 minutes ago</div>
+                                <div class="status-stats">
+                                    <div class="status-stat">
+                                        <div class="stat-value">243,516</div>
+                                        <div class="stat-label">Players</div>
+                                    </div>
+                                    <div class="status-stat">
+                                        <div class="stat-value">18,209</div>
+                                        <div class="stat-label">Servers</div>
+                                    </div>
+                                    <div class="status-stat">
+                                        <div class="stat-value">23ms</div>
+                                        <div class="stat-label">Avg Ping</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="status-card">
+                                <div class="status-name"><span class="status-indicator status-online"></span> US West</div>
+                                <div class="status-details">Last updated: 3 minutes ago</div>
+                                <div class="status-stats">
+                                    <div class="status-stat">
+                                        <div class="stat-value">198,342</div>
+                                        <div class="stat-label">Players</div>
+                                    </div>
+                                    <div class="status-stat">
+                                        <div class="stat-value">15,678</div>
+                                        <div class="stat-label">Servers</div>
+                                    </div>
+                                    <div class="status-stat">
+                                        <div class="stat-value">26ms</div>
+                                        <div class="stat-label">Avg Ping</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="status-card">
+                                <div class="status-name"><span class="status-indicator status-issues"></span> EU West</div>
+                                <div class="status-details">Some matchmaking delays reported</div>
+                                <div class="status-stats">
+                                    <div class="status-stat">
+                                        <div class="stat-value">356,891</div>
+                                        <div class="stat-label">Players</div>
+                                    </div>
+                                    <div class="status-stat">
+                                        <div class="stat-value">24,562</div>
+                                        <div class="stat-label">Servers</div>
+                                    </div>
+                                    <div class="status-stat">
+                                        <div class="stat-value">31ms</div>
+                                        <div class="stat-label">Avg Ping</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="status-card">
+                                <div class="status-name"><span class="status-indicator status-online"></span> EU East</div>
+                                <div class="status-details">Last updated: 2 minutes ago</div>
+                                <div class="status-stats">
+                                    <div class="status-stat">
+                                        <div class="stat-value">289,734</div>
+                                        <div class="stat-label">Players</div>
+                                    </div>
+                                    <div class="status-stat">
+                                        <div class="stat-value">19,823</div>
+                                        <div class="stat-label">Servers</div>
+                                    </div>
+                                    <div class="status-stat">
+                                        <div class="stat-value">28ms</div>
+                                        <div class="stat-label">Avg Ping</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="status-card">
+                                <div class="status-name"><span class="status-indicator status-offline"></span> EU North</div>
+                                <div class="status-details">Maintenance in progress</div>
+                                <div class="status-stats">
+                                    <div class="status-stat">
+                                        <div class="stat-value">0</div>
+                                        <div class="stat-label">Players</div>
+                                    </div>
+                                    <div class="status-stat">
+                                        <div class="stat-value">0</div>
+                                        <div class="stat-label">Servers</div>
+                                    </div>
+                                    <div class="status-stat">
+                                        <div class="stat-value">--</div>
+                                        <div class="stat-label">Avg Ping</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="status-card">
+                                <div class="status-name"><span class="status-indicator status-online"></span> Asia</div>
+                                <div class="status-details">Last updated: 4 minutes ago</div>
+                                <div class="status-stats">
+                                    <div class="status-stat">
+                                        <div class="stat-value">412,567</div>
+                                        <div class="stat-label">Players</div>
+                                    </div>
+                                    <div class="status-stat">
+                                        <div class="stat-value">29,843</div>
+                                        <div class="stat-label">Servers</div>
+                                    </div>
+                                    <div class="status-stat">
+                                        <div class="stat-value">35ms</div>
+                                        <div class="stat-label">Avg Ping</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="server-section">
+                    <div class="server-title">Server Distribution Map</div>
+                    <div class="server-content">
+                        <p>CS:GO servers are distributed globally to provide the best possible gameplay experience for players worldwide. The map below shows the current distribution of official Valve servers.</p>
+
+                        <div class="region-map">
+                            GLOBAL SERVER DISTRIBUTION MAP
+                        </div>
+                    </div>
+                </div>
+
+                <div class="server-section">
+                    <div class="server-title">Matchmaking Data Center Information</div>
+                    <div class="server-content">
+                        <p>CS:GO uses dedicated servers for official matchmaking, ensuring fair and reliable gameplay. Here are the current data centers and their specifications:</p>
+
+                        <div class="server-table">
+                            <table>
+                                <tr>
+                                    <th>Region</th>
+                                    <th>Location</th>
+                                    <th>Tickrate</th>
+                                    <th>Recommended For</th>
+                                    <th>Average Ping</th>
+                                </tr>
+                                <tr>
+                                    <td>US East</td>
+                                    <td>Sterling, Virginia</td>
+                                    <td>64/128</td>
+                                    <td>Eastern US, Canada</td>
+                                    <td class="ping-good">5-40ms</td>
+                                </tr>
+                                <tr>
+                                    <td>US Central</td>
+                                    <td>Chicago, Illinois</td>
+                                    <td>64/128</td>
+                                    <td>Central US, Canada</td>
+                                    <td class="ping-good">10-45ms</td>
+                                </tr>
+                                <tr>
+                                    <td>US West</td>
+                                    <td>Seattle, Washington</td>
+                                    <td>64/128</td>
+                                    <td>Western US, Canada</td>
+                                    <td class="ping-good">5-50ms</td>
+                                </tr>
+                                <tr>
+                                    <td>EU West</td>
+                                    <td>Luxembourg</td>
+                                    <td>64/128</td>
+                                    <td>Western Europe</td>
+                                    <td class="ping-good">10-40ms</td>
+                                </tr>
+                                <tr>
+                                    <td>EU East</td>
+                                    <td>Vienna, Austria</td>
+                                    <td>64/128</td>
+                                    <td>Eastern Europe</td>
+                                    <td class="ping-good">10-45ms</td>
+                                </tr>
+                                <tr>
+                                    <td>EU North</td>
+                                    <td>Stockholm, Sweden</td>
+                                    <td>64/128</td>
+                                    <td>Northern Europe</td>
+                                    <td class="ping-good">5-35ms</td>
+                                </tr>
+                                <tr>
+                                    <td>South America</td>
+                                    <td>São Paulo, Brazil</td>
+                                    <td>64</td>
+                                    <td>Brazil, Argentina</td>
+                                    <td class="ping-medium">30-70ms</td>
+                                </tr>
+                                <tr>
+                                    <td>Asia East</td>
+                                    <td>Tokyo, Japan</td>
+                                    <td>64</td>
+                                    <td>Japan, Korea</td>
+                                    <td class="ping-good">10-45ms</td>
+                                </tr>
+                                <tr>
+                                    <td>Asia Southeast</td>
+                                    <td>Singapore</td>
+                                    <td>64</td>
+                                    <td>SEA Region</td>
+                                    <td class="ping-medium">20-60ms</td>
+                                </tr>
+                                <tr>
+                                    <td>Australia</td>
+                                    <td>Sydney</td>
+                                    <td>64</td>
+                                    <td>Australia, New Zealand</td>
+                                    <td class="ping-medium">15-60ms</td>
+                                </tr>
+                                <tr>
+                                    <td>Middle East</td>
+                                    <td>Dubai, UAE</td>
+                                    <td>64</td>
+                                    <td>Middle East</td>
+                                    <td class="ping-medium">30-80ms</td>
+                                </tr>
+                                <tr>
+                                    <td>Africa</td>
+                                    <td>Johannesburg, South Africa</td>
+                                    <td>64</td>
+                                    <td>South Africa</td>
+                                    <td class="ping-poor">40-100ms</td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <p>Note: 128-tick servers are available for Premier Mode and certain competitions. Standard matchmaking uses 64-tick servers.</p>
+                    </div>
+                </div>
+
+                <div class="server-section">
+                    <div class="server-title">How to Check Your Best Server</div>
+                    <div class="server-content">
+                        <p>You can check your ping to CS:GO servers using the in-game settings. Follow these steps:</p>
+
+                        <ol>
+                            <li>Open CS:GO</li>
+                            <li>Click on "Settings" in the main menu</li>
+                            <li>Select the "Game Settings" tab</li>
+                            <li>Click on "Data Centers" under "Matchmaking"</li>
+                            <li>Wait for the ping test to complete</li>
+                        </ol>
+
+                        <p>The lower the ping value, the better your connection to that server. For optimal gameplay experience, choose servers with ping below 60ms when possible.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <div class="valve-logo">VALVE</div>
+            </div>
+            <div class="footer-text">
+                <p>© 2025 Valve Corporation. All rights reserved. All trademarks are property of their respective owners in the US and other countries.</p>
+                <p>VAT included in all prices where applicable.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">Valve</a> |
+                <a href="#">Privacy Policy</a> |
+                <a href="#">Legal</a> |
+                <a href="#">Steam Subscriber Agreement</a> |
+                <a href="#">Report A Bug</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

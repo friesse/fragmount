@@ -70,9 +70,77 @@
             width: 88px;
             height: 25px;
         }
+
+        .green-gradient {
+            background: linear-gradient(to right, #00b09b, #96c93d);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .green-gradient-header {
+            background: linear-gradient(to right, #00b09b, #96c93d);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-content {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            width: 300px;
+            text-align: center;
+        }
+
+        .close-popup {
+            cursor: pointer;
+            float: right;
+        }
     </style>
 </head>
 <body>
+    <!-- Login Popup -->
+    <div id="login-popup" class="popup-overlay">
+        <div class="popup-content">
+            <div class="popup-header">
+                <h3>Sign In</h3>
+                <span class="close-popup">&times;</span>
+            </div>
+            <div class="popup-body">
+                <div id="login-box">
+                    <div class="login-form">
+                        <input type="text" id="username" placeholder="Username" class="account-input">
+                        <input type="password" id="password" placeholder="Password" class="account-input">
+                        <button id="login-button" class="account-button">Login</button>
+                    </div>
+                </div>
+                <div id="logged-in-box" style="display:none;">
+                    <div class="green-gradient">
+                        <p>Welcome, <span id="display-username">User</span>!</p>
+                        <p>Account in good standing</p>
+                        <p>VAC Status: Clean</p>
+                    </div>
+                    <button id="logout-button" class="account-button">Logout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div id="global-header">
         <div class="content">
             <div class="logo">
@@ -89,7 +157,7 @@
                     <a href="#">Install Steam</a>
                 </div>
                 <div class="user-actions">
-                    <a href="#">login</a> | <a href="#">language</a>
+                    <a href="#" id="login-trigger">login</a> | <a href="#">language</a>
                 </div>
             </div>
         </div>
@@ -99,11 +167,11 @@
         <div class="store-nav">
             <div class="store-nav-inner">
                 <div class="store-nav-left">
-                    <a href="#">UPDATES</a>
-                    <a href="#">OPERATIONS</a>
-                    <a href="#">TOURNAMENTS</a>
-                    <a href="#">NEWS</a>
-                    <a href="#">DISCORD</a>
+                    <a href="#">Updates</a>
+                    <a href="#">Operations</a>
+                    <a href="#">Tournaments</a>
+                    <a href="#">News</a>
+                    <a href="#">Discord</a>
                 </div>
                 <div class="store-nav-right">
                     <div class="search">
@@ -127,19 +195,22 @@
                 <div class="app-left-column">
                     <div class="highlight-trailer">
                         <div class="highlight-player">
-                            <div class="placeholder-video">COUNTER-STRIKE: GLOBAL OFFENSIVE TRAILER</div>
+                            <video id="game-trailer" controls poster="img/poster-placeholder.jpg" class="game-video">
+                                <source src="videos/your-trailer.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
                         </div>
                         <div class="highlight-strip">
-                            <div class="highlight-selector selected">
+                            <div class="highlight-selector selected" data-type="video" data-src="videos/your-trailer.mp4">
                                 <div class="video-thumbnail">TRAILER</div>
                             </div>
-                            <div class="highlight-selector">
+                            <div class="highlight-selector" data-type="image" data-src="img/screenshots/dust2.jpg">
                                 <div class="video-thumbnail">DUST II</div>
                             </div>
-                            <div class="highlight-selector">
+                            <div class="highlight-selector" data-type="image" data-src="img/screenshots/inferno.jpg">
                                 <div class="video-thumbnail">INFERNO</div>
                             </div>
-                            <div class="highlight-selector">
+                            <div class="highlight-selector" data-type="image" data-src="img/screenshots/match.jpg">
                                 <div class="video-thumbnail">MATCH</div>
                             </div>
                         </div>
@@ -170,64 +241,32 @@
                             <div class="sys-reqs-rec">
                                 <h3>RECOMMENDED:</h3>
                                 <ul>
-                                    <li><strong>OS:</strong> Windows® 7/Vista/XP</li>
-                                    <li><strong>Processor:</strong> Intel® Core™ 2 Duo E6600 or AMD Phenom™ X3 8750 processor or better</li>
+                                    <li><strong>OS:</strong> Windows® 8.1</li>
+                                    <li><strong>Processor:</strong> Intel® Core™ i5-3330 or better</li>
                                     <li><strong>Memory:</strong> 4 GB RAM</li>
-                                    <li><strong>Graphics:</strong> Video card must be 256 MB or more and should be a DirectX 9-compatible with support for Pixel Shader 3.0</li>
-                                    <li><strong>DirectX:</strong> Version 9.0c</li>
-                                    <li><strong>Storage:</strong> 15 GB available space</li>
+                                    <li><strong>Graphics:</strong> Video card must be 1GB VRAM GDDR4 or DDR3, NVIDIA® GeForce™ GTX 770</li>
+                                    <li><strong>DirectX:</strong> Version 10.0</li>
+                                    <li><strong>Storage:</strong> 30 GB available space</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
 
                     <div class="block">
-                        <div class="block-header">
-                            <h4>TOURNAMENTS</h4>
+                        <div class="block-header green-gradient-header">
+                            <h4>POPULAR USER-DEFINED TAGS FOR THIS PRODUCT</h4>
                         </div>
                         <div class="block-content">
-                            <a href="#" class="app-tag">ESL One</a>
-                            <a href="#" class="app-tag">DreamHack</a>
-                            <a href="#" class="app-tag">FACEIT Major</a>
-                            <a href="#" class="app-tag">BLAST Premier</a>
-                            <a href="#" class="app-tag">IEM Katowice</a>
-                            <a href="#" class="app-tag">StarLadder</a>
-                            <a href="#" class="app-tag">PGL Major</a>
-                            <a href="#" class="app-tag">ELEAGUE</a>
-                            <a href="#" class="app-tag">Community Cups</a>
-                        </div>
-                    </div>
-
-                    <div class="block">
-                        <div class="block-header">
-                            <h4>POPULAR GAME MODES</h4>
-                        </div>
-                        <div class="block-content">
+                            <a href="#" class="app-tag">FPS</a>
+                            <a href="#" class="app-tag">Shooter</a>
+                            <a href="#" class="app-tag">Multiplayer</a>
                             <a href="#" class="app-tag">Competitive</a>
-                            <a href="#" class="app-tag">Casual</a>
-                            <a href="#" class="app-tag">Deathmatch</a>
-                            <a href="#" class="app-tag">Wingman</a>
-                            <a href="#" class="app-tag">Arms Race</a>
-                            <a href="#" class="app-tag">War Games</a>
-                            <a href="#" class="app-tag">Danger Zone</a>
-                            <a href="#" class="app-tag">Retakes</a>
-                            <a href="#" class="app-tag">Community Servers</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="app-right-column">
-                    <div class="game-purchase">
-                        <div class="game-header-image">
-                            <div class="csgo-header">CS:GO</div>
-                        </div>
-                        <div class="game-purchase-price">
-                            <h1>PLAY NOW</h1>
-                            <div class="game-purchase-action">
-                                <div class="btn-action">
-                                    <a href="#" class="btn-download">LAUNCH GAME</a>
-                                </div>
-                            </div>
+                            <a href="#" class="app-tag">Action</a>
+                            <a href="#" class="app-tag">Team-Based</a>
+                            <a href="#" class="app-tag">Tactical</a>
+                            <a href="#" class="app-tag">First-Person</a>
+                            <a href="#" class="app-tag">e-sports</a>
+                            <a href="#" class="app-tag">Military</a>
                         </div>
                     </div>
 
@@ -260,19 +299,56 @@
 
                     <div class="block">
                         <div class="block-header">
+                            <h4>ACCOUNT STATUS</h4>
+                        </div>
+                        <div class="block-content">
+                            <div class="account-status-display">
+                                <div id="status-not-logged-in">
+                                    <p>Not logged in.</p>
+                                    <button id="header-login-button" class="account-button">Login</button>
+                                </div>
+                                <div id="status-logged-in" style="display:none;">
+                                    <p>Logged in as: <span id="header-username">User</span></p>
+                                    <p>VAC Status: Clean</p>
+                                    <button id="header-logout-button" class="account-button">Logout</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="app-right-column">
+                    <div class="game-purchase">
+                        <div class="game-header-image">
+                            <div class="csgo-header">CS:GO</div>
+                        </div>
+                        <div class="game-purchase-price">
+                            <h1>PLAY NOW</h1>
+                            <div class="game-purchase-action">
+                                <div class="btn-action">
+                                    <a href="#" class="btn-download">LAUNCH GAME</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="block">
+                        <div class="block-header">
                             <h4>POPULAR USER-DEFINED TAGS FOR THIS PRODUCT</h4>
                         </div>
                         <div class="block-content">
-                            <a href="#" class="app-tag">FPS</a>
-                            <a href="#" class="app-tag">Shooter</a>
-                            <a href="#" class="app-tag">Multiplayer</a>
-                            <a href="#" class="app-tag">Competitive</a>
-                            <a href="#" class="app-tag">Action</a>
-                            <a href="#" class="app-tag">Team-Based</a>
-                            <a href="#" class="app-tag">Tactical</a>
-                            <a href="#" class="app-tag">First-Person</a>
-                            <a href="#" class="app-tag">e-sports</a>
-                            <a href="#" class="app-tag">Military</a>
+                            <div class="green-gradient">
+                                <a href="#" class="app-tag">FPS</a>
+                                <a href="#" class="app-tag">Shooter</a>
+                                <a href="#" class="app-tag">Multiplayer</a>
+                                <a href="#" class="app-tag">Competitive</a>
+                                <a href="#" class="app-tag">Action</a>
+                                <a href="#" class="app-tag">Team-Based</a>
+                                <a href="#" class="app-tag">Tactical</a>
+                                <a href="#" class="app-tag">First-Person</a>
+                                <a href="#" class="app-tag">e-sports</a>
+                                <a href="#" class="app-tag">Military</a>
+                            </div>
                         </div>
                     </div>
                 </div>

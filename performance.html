@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS:GO Performance</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Additional styles specific to the Performance page */
+        .performance-container {
+            background: linear-gradient(to bottom, rgba(32, 55, 82, 0.5) 0%, rgba(17, 26, 38, 0.5) 80%);
+            padding: 20px;
+            border-radius: 4px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+        }
+
+        .performance-section {
+            margin-bottom: 30px;
+        }
+
+        .performance-title {
+            font-size: 20px;
+            color: #67c1f5;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(103, 193, 245, 0.3);
+            padding-bottom: 10px;
+        }
+
+        .performance-content {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #c6d4df;
+        }
+
+        .performance-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .performance-table th,
+        .performance-table td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        .performance-table th {
+            background-color: rgba(38, 64, 95, 0.8);
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .performance-table tr:nth-child(odd) {
+            background-color: rgba(38, 64, 95, 0.3);
+        }
+
+        .performance-table tr:nth-child(even) {
+            background-color: rgba(38, 64, 95, 0.1);
+        }
+
+        .performance-tip {
+            background-color: rgba(76, 175, 80, 0.1);
+            border-left: 3px solid #4CAF50;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .performance-warning {
+            background-color: rgba(255, 152, 0, 0.1);
+            border-left: 3px solid #FF9800;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .command-box {
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 4px;
+            font-family: monospace;
+            color: #c6d4df;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+
+        .copy-button {
+            display: inline-block;
+            background: linear-gradient(to bottom, #5b7a9c 0%, #3d5a76 100%);
+            padding: 5px 10px;
+            color: #fff;
+            border-radius: 2px;
+            font-size: 12px;
+            margin-left: 10px;
+            cursor: pointer;
+            border: 1px solid #1b2838;
+        }
+
+        .copy-button:hover {
+            background: linear-gradient(to bottom, #67c1f5 0%, #4181be 100%);
+        }
+    </style>
+</head>
+<body>
+    <div id="global-header">
+        <div class="content">
+            <div class="logo">
+                <a href="index.html"><div class="logo-placeholder">STEAM</div></a>
+            </div>
+            <div class="menu">
+                <a href="performance.html">PERFORMANCE</a>
+                <a href="#">COMMUNITY</a>
+                <a href="servers.html">SERVERS</a>
+                <a href="support.html">SUPPORT</a>
+            </div>
+            <div class="global-actions">
+                <div class="install-steam">
+                    <a href="#">Install Steam</a>
+                </div>
+                <div class="user-actions">
+                    <a href="#">login</a> | <a href="#">language</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="main-content">
+        <div class="store-nav">
+            <div class="store-nav-inner">
+                <div class="store-nav-left">
+                    <a href="updates.html">UPDATES</a>
+                    <a href="operations.html">OPERATIONS</a>
+                    <a href="#">TOURNAMENTS</a>
+                    <a href="#">NEWS</a>
+                    <a href="#">DISCORD</a>
+                </div>
+                <div class="store-nav-right">
+                    <div class="search">
+                        <div class="date-time" id="date-time">Loading date and time...</div>
+                    </div>
+                    <div class="cart">
+                        <a href="#" class="cart-btn"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="app-page">
+            <div class="app-header">
+                <div class="app-title">
+                    <h1>CS:GO PERFORMANCE GUIDE</h1>
+                </div>
+            </div>
+
+            <div class="performance-container">
+                <div class="performance-section">
+                    <div class="performance-title">Optimizing In-Game Settings</div>
+                    <div class="performance-content">
+                        <p>Counter-Strike: Global Offensive is designed to run on a wide range of hardware configurations, but proper optimization can dramatically improve your performance and gameplay experience. This guide covers essential settings and configurations to maximize your FPS and reduce input lag.</p>
+
+                        <div class="performance-tip">
+                            <strong>Pro Tip:</strong> Lower graphics settings generally provide better competitive advantage by reducing visual clutter and increasing visibility of enemies.
+                        </div>
+
+                        <h3>Recommended Video Settings</h3>
+                        <div class="performance-table">
+                            <table>
+                                <tr>
+                                    <th>Setting</th>
+                                    <th>Low-End PC</th>
+                                    <th>Mid-Range PC</th>
+                                    <th>High-End PC</th>
+                                </tr>
+                                <tr>
+                                    <td>Global Shadow Quality</td>
+                                    <td>Low</td>
+                                    <td>Medium</td>
+                                    <td>High</td>
+                                </tr>
+                                <tr>
+                                    <td>Model / Texture Detail</td>
+                                    <td>Low</td>
+                                    <td>Medium</td>
+                                    <td>High</td>
+                                </tr>
+                                <tr>
+                                    <td>Effect Detail</td>
+                                    <td>Low</td>
+                                    <td>Low</td>
+                                    <td>Medium</td>
+                                </tr>
+                                <tr>
+                                    <td>Shader Detail</td>
+                                    <td>Low</td>
+                                    <td>Low</td>
+                                    <td>Medium</td>
+                                </tr>
+                                <tr>
+                                    <td>Multicore Rendering</td>
+                                    <td>Enabled</td>
+                                    <td>Enabled</td>
+                                    <td>Enabled</td>
+                                </tr>
+                                <tr>
+                                    <td>Multisampling Anti-Aliasing Mode</td>
+                                    <td>None</td>
+                                    <td>2x MSAA</td>
+                                    <td>4x MSAA</td>
+                                </tr>
+                                <tr>
+                                    <td>FXAA Anti-Aliasing</td>
+                                    <td>Disabled</td>
+                                    <td>Disabled</td>
+                                    <td>Enabled</td>
+                                </tr>
+                                <tr>
+                                    <td>Texture Filtering Mode</td>
+                                    <td>Bilinear</td>
+                                    <td>Trilinear</td>
+                                    <td>Anisotropic 8X</td>
+                                </tr>
+                                <tr>
+                                    <td>Vertical Sync</td>
+                                    <td>Disabled</td>
+                                    <td>Disabled</td>
+                                    <td>Disabled</td>
+                                </tr>
+                                <tr>
+                                    <td>Motion Blur</td>
+                                    <td>Disabled</td>
+                                    <td>Disabled</td>
+                                    <td>Disabled</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="performance-section">
+                    <div class="performance-title">Launch Options</div>
+                    <div class="performance-content">
+                        <p>Launch options can significantly impact your CS:GO performance. Here are some commonly used launch options to boost FPS and reduce latency:</p>
+
+                        <div class="command-box">
+                            -novid -tickrate 128 -high -threads 4 +fps_max 0 +cl_interp 0 +cl_interp_ratio 1 +rate 128000 +cl_updaterate 128 +cl_cmdrate 128 -d3d9ex -nojoy
+                            <span class="copy-button">Copy</span>
+                        </div>
+
+                        <p>Option explanations:</p>
+                        <ul>
+                            <li><strong>-novid</strong>: Skips the intro video when starting the game</li>
+                            <li><strong>-tickrate 128</strong>: Sets local server tickrate to 128</li>
+                            <li><strong>-high</strong>: Sets the game to high priority in your system</li>
+                            <li><strong>-threads [number]</strong>: Specifies how many CPU threads to use (set to your CPU's thread count)</li>
+                            <li><strong>+fps_max 0</strong>: Removes the FPS cap</li>
+                            <li><strong>-d3d9ex</strong>: Enables DirectX 9 extensions for better alt-tabbing and potentially better performance</li>
+                            <li><strong>-nojoy</strong>: Disables joystick support to free up resources</li>
+                        </ul>
+
+                        <div class="performance-warning">
+                            <strong>Warning:</strong> Some launch options can negatively impact performance on certain systems. Test different configurations to find what works best for your setup.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="performance-section">
+                    <div class="performance-title">Advanced Console Commands</div>
+                    <div class="performance-content">
+                        <p>These console commands can help you fine-tune your performance beyond the standard settings menu options:</p>
+
+                        <div class="command-box">
+                            cl_forcepreload 1
+                            <span class="copy-button">Copy</span>
+                        </div>
+                        <p>Forces the game to preload all models and maps, which can reduce stuttering during gameplay.</p>
+
+                        <div class="command-box">
+                            r_dynamic 0
+                            <span class="copy-button">Copy</span>
+                        </div>
+                        <p>Disables dynamic lighting, which can improve performance on lower-end systems.</p>
+
+                        <div class="command-box">
+                            cl_disablehtmlmotd 1
+                            <span class="copy-button">Copy</span>
+                        </div>
+                        <p>Disables the HTML message of the day when joining servers, saving resources.</p>
+
+                        <div class="command-box">
+                            r_drawparticles 0
+                            <span class="copy-button">Copy</span>
+                        </div>
+                        <p>Reduces or disables particle effects for improved performance.</p>
+                    </div>
+                </div>
+
+                <div class="performance-section">
+                    <div class="performance-title">System Optimization</div>
+                    <div class="performance-content">
+                        <p>Beyond in-game settings, optimizing your operating system and hardware can provide significant performance benefits:</p>
+
+                        <h3>Windows Optimizations</h3>
+                        <ul>
+                            <li>Update your GPU drivers to the latest version</li>
+                            <li>Set your Windows power plan to "High Performance"</li>
+                            <li>Disable Windows Game Bar and Game DVR features</li>
+                            <li>Close unnecessary background applications</li>
+                            <li>Disable fullscreen optimizations for csgo.exe</li>
+                            <li>Set Steam and CS:GO to high priority in Task Manager</li>
+                        </ul>
+
+                        <h3>Network Optimization</h3>
+                        <ul>
+                            <li>Use a wired connection instead of Wi-Fi when possible</li>
+                            <li>Set appropriate rate settings based on your internet speed</li>
+                            <li>Configure your router to prioritize gaming traffic</li>
+                            <li>Add CS:GO to your firewall exceptions list</li>
+                        </ul>
+
+                        <div class="performance-tip">
+                            <strong>Pro Tip:</strong> If you experience network issues, try using these rate commands based on your connection speed:
+                            <div class="command-box">
+                                // For 5+ Mbps connections:
+                                rate 786432
+                                <span class="copy-button">Copy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <div class="valve-logo">VALVE</div>
+            </div>
+            <div class="footer-text">
+                <p>© 2025 Valve Corporation. All rights reserved. All trademarks are property of their respective owners in the US and other countries.</p>
+                <p>VAT included in all prices where applicable.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">Valve</a> |
+                <a href="#">Privacy Policy</a> |
+                <a href="#">Legal</a> |
+                <a href="#">Steam Subscriber Agreement</a> |
+                <a href="#">Report A Bug</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Add functionality for copy buttons
+        document.addEventListener('DOMContentLoaded', function() {
+            const copyButtons = document.querySelectorAll('.copy-button');
+
+            copyButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const commandText = this.parentNode.textContent.trim().replace('Copy', '').trim();
+
+                    // Create temporary textarea to copy text
+                    const textarea = document.createElement('textarea');
+                    textarea.value = commandText;
+                    document.body.appendChild(textarea);
+                    textarea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textarea);
+
+                    // Show copied feedback
+                    const originalText = this.textContent;
+                    this.textContent = 'Copied!';
+                    this.style.background = 'linear-gradient(to bottom, #4CAF50, #2E7D32)';
+
+                    // Reset after 2 seconds
+                    setTimeout(() => {
+                        this.textContent = originalText;
+                        this.style.background = '';
+                    }, 2000);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

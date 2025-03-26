@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS:GO Operations</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Additional styles specific to the Operations page */
+        .operations-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .operation-card {
+            width: calc(50% - 10px);
+            background: linear-gradient(to bottom, rgba(32, 55, 82, 0.5) 0%, rgba(17, 26, 38, 0.5) 80%);
+            padding: 20px;
+            border-radius: 4px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+            margin-bottom: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .operation-thumbnail {
+            height: 150px;
+            background-color: #17202f;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            border-radius: 3px;
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .operation-thumbnail::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(103, 193, 245, 0.2), transparent);
+            z-index: 1;
+        }
+
+        .operation-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .operation-date {
+            font-size: 13px;
+            color: #8ba5b7;
+            margin-bottom: 15px;
+        }
+
+        .operation-description {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #c6d4df;
+            margin-bottom: 15px;
+        }
+
+        .operation-features {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .operation-features li {
+            margin-bottom: 5px;
+            color: #a4d007;
+        }
+
+        .operation-features li span {
+            color: #c6d4df;
+        }
+
+        .operation-status {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .status-active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .status-expired {
+            background-color: #607D8B;
+            color: #ddd;
+        }
+
+        .status-upcoming {
+            background-color: #FF9800;
+            color: white;
+        }
+
+        .operation-details {
+            color: #67c1f5;
+            text-decoration: underline;
+            margin-left: 10px;
+            font-size: 13px;
+        }
+
+        .operation-details:hover {
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .operation-card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="global-header">
+        <div class="content">
+            <div class="logo">
+                <a href="index.html"><div class="logo-placeholder">STEAM</div></a>
+            </div>
+            <div class="menu">
+                <a href="performance.html">PERFORMANCE</a>
+                <a href="#">COMMUNITY</a>
+                <a href="servers.html">SERVERS</a>
+                <a href="support.html">SUPPORT</a>
+            </div>
+            <div class="global-actions">
+                <div class="install-steam">
+                    <a href="#">Install Steam</a>
+                </div>
+                <div class="user-actions">
+                    <a href="#">login</a> | <a href="#">language</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="main-content">
+        <div class="store-nav">
+            <div class="store-nav-inner">
+                <div class="store-nav-left">
+                    <a href="updates.html">UPDATES</a>
+                    <a href="operations.html" class="active">OPERATIONS</a>
+                    <a href="#">TOURNAMENTS</a>
+                    <a href="#">NEWS</a>
+                    <a href="#">DISCORD</a>
+                </div>
+                <div class="store-nav-right">
+                    <div class="search">
+                        <div class="date-time" id="date-time">Loading date and time...</div>
+                    </div>
+                    <div class="cart">
+                        <a href="#" class="cart-btn"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="app-page">
+            <div class="app-header">
+                <div class="app-title">
+                    <h1>CS:GO OPERATIONS</h1>
+                </div>
+            </div>
+
+            <div class="operations-container">
+                <div class="operation-card">
+                    <div class="operation-thumbnail">Operation Omega</div>
+                    <div class="operation-title">Operation Omega</div>
+                    <div class="operation-date">March 1, 2025 - June 1, 2025</div>
+                    <div class="operation-description">
+                        <p>The latest operation brings new challenges and rewards to Counter-Strike: Global Offensive with an emphasis on team-based missions and exclusive weapon collections.</p>
+                    </div>
+                    <ul class="operation-features">
+                        <li><span>7 new community maps</span></li>
+                        <li><span>New Omega weapon case</span></li>
+                        <li><span>100 stars to earn</span></li>
+                        <li><span>22 weekly missions</span></li>
+                        <li><span>Exclusive agent skins</span></li>
+                    </ul>
+                    <div class="operation-status status-active">Active</div>
+                    <a href="#" class="operation-details">View Details</a>
+                </div>
+
+                <div class="operation-card">
+                    <div class="operation-thumbnail">Operation Vortex</div>
+                    <div class="operation-title">Operation Vortex</div>
+                    <div class="operation-date">November 15, 2024 - February 15, 2025</div>
+                    <div class="operation-description">
+                        <p>Operation Vortex introduced a new cooperative mission storyline, letting players team up to take down a global criminal organization through a series of connected missions.</p>
+                    </div>
+                    <ul class="operation-features">
+                        <li><span>5 new cooperative missions</span></li>
+                        <li><span>Vortex weapon case</span></li>
+                        <li><span>75 stars to earn</span></li>
+                        <li><span>18 weekly missions</span></li>
+                        <li><span>Unique operation coin</span></li>
+                    </ul>
+                    <div class="operation-status status-expired">Expired</div>
+                    <a href="#" class="operation-details">View Details</a>
+                </div>
+
+                <div class="operation-card">
+                    <div class="operation-thumbnail">Operation Phantom</div>
+                    <div class="operation-title">Operation Phantom</div>
+                    <div class="operation-date">July 8, 2024 - October 31, 2024</div>
+                    <div class="operation-description">
+                        <p>Operation Phantom focused on stealth and tactics, with missions that rewarded careful planning and precise execution rather than all-out firefights.</p>
+                    </div>
+                    <ul class="operation-features">
+                        <li><span>6 night-mode maps</span></li>
+                        <li><span>Phantom weapon case</span></li>
+                        <li><span>80 stars to earn</span></li>
+                        <li><span>16 weekly missions</span></li>
+                        <li><span>Night vision equipment</span></li>
+                    </ul>
+                    <div class="operation-status status-expired">Expired</div>
+                    <a href="#" class="operation-details">View Details</a>
+                </div>
+
+                <div class="operation-card">
+                    <div class="operation-thumbnail">Operation Eclipse</div>
+                    <div class="operation-title">Operation Eclipse</div>
+                    <div class="operation-date">September 1, 2025 - December 1, 2025</div>
+                    <div class="operation-description">
+                        <p>The upcoming Operation Eclipse will introduce dynamic weather systems to maps and missions that change based on time of day and environmental conditions.</p>
+                    </div>
+                    <ul class="operation-features">
+                        <li><span>8 weather-affected maps</span></li>
+                        <li><span>Eclipse weapon case</span></li>
+                        <li><span>120 stars to earn</span></li>
+                        <li><span>24 weekly missions</span></li>
+                        <li><span>Weather-adaptive equipment</span></li>
+                    </ul>
+                    <div class="operation-status status-upcoming">Upcoming</div>
+                    <a href="#" class="operation-details">View Details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <div class="valve-logo">VALVE</div>
+            </div>
+            <div class="footer-text">
+                <p>© 2025 Valve Corporation. All rights reserved. All trademarks are property of their respective owners in the US and other countries.</p>
+                <p>VAT included in all prices where applicable.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">Valve</a> |
+                <a href="#">Privacy Policy</a> |
+                <a href="#">Legal</a> |
+                <a href="#">Steam Subscriber Agreement</a> |
+                <a href="#">Report A Bug</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
