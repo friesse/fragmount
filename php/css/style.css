@@ -1,0 +1,547 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #1b2838;
+    color: #c6d4df;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+a {
+    color: #66c0f4;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+    color: #fff;
+}
+
+h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: bold;
+    padding: 5px 0;
+    border-bottom: 1px solid #4a5a6c;
+}
+
+ul, ol {
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+/* Placeholder styles for images */
+.placeholder-img {
+    background-color: #3d6284;
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    border-radius: 2px;
+    font-size: 14px;
+    font-weight: bold;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.placeholder-video {
+    background: linear-gradient(to bottom, #1e3c68 0%, #2a485e 100%);
+    height: 380px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    border: 1px solid #000;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Global Header */
+#global-header {
+    background: #171a21;
+    height: 104px;
+    position: relative;
+    border-bottom: 1px solid #36404d;
+}
+
+#global-header .content {
+    width: 940px;
+    margin: 0 auto;
+    position: relative;
+    height: 104px;
+}
+
+#global-header .logo {
+    float: left;
+    padding-top: 30px;
+    width: 176px;
+    height: 44px;
+}
+
+#global-header .menu {
+    position: absolute;
+    left: 200px;
+    top: 0;
+    height: 104px;
+    display: flex;
+    align-items: center;
+}
+
+#global-header .menu a {
+    color: #b8b6b4;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 0 15px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+    letter-spacing: 0.5px;
+}
+
+#global-header .menu a.active {
+    color: #fff;
+    background: linear-gradient(to bottom, rgba(62, 103, 150, 0.95) 0%, rgba(46, 66, 91, 0.95) 100%);
+    padding: 6px 15px;
+    border-radius: 2px;
+}
+
+#global-header .global-actions {
+    position: absolute;
+    right: 0;
+    top: 45px;
+    font-size: 12px;
+    color: #b8b6b4;
+}
+
+#global-header .install-steam {
+    margin-bottom: 10px;
+}
+
+#global-header .install-steam a {
+    background: linear-gradient(to bottom, #799905 0%, #536904 100%);
+    padding: 6px 12px;
+    color: #fff;
+    border-radius: 2px;
+    font-weight: bold;
+    border: 1px solid #000;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Store Navigation */
+.store-nav {
+    background: linear-gradient(to bottom, #2a475e 0%, #1b2838 100%);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+    height: 35px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.store-nav-inner {
+    width: 940px;
+    margin: 0 auto;
+    position: relative;
+    height: 35px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.store-nav-left {
+    display: flex;
+    align-items: center;
+    height: 35px;
+}
+
+.store-nav-left a {
+    color: #b8b6b4;
+    padding: 0 15px;
+    font-size: 13px;
+    line-height: 35px;
+}
+
+.store-nav-left a:hover {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.store-nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.search {
+    display: flex;
+    height: 26px;
+    margin-right: 10px;
+}
+
+.search input {
+    width: 200px;
+    background-color: #316282;
+    border: 1px solid #000;
+    border-radius: 3px 0 0 3px;
+    color: #fff;
+    padding: 0 10px;
+    height: 26px;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+.btn-search {
+    width: 30px;
+    height: 26px;
+    background-color: #4c6b22;
+    border: 1px solid #000;
+    border-left: none;
+    border-radius: 0 3px 3px 0;
+    cursor: pointer;
+    background-image: url('../images/search.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.cart-btn {
+    width: 26px;
+    height: 26px;
+    background-color: #316282;
+    display: block;
+    border-radius: 3px;
+    border: 1px solid #000;
+    background-image: url('../images/cart.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Main Content */
+#main-content {
+    width: 940px;
+    margin: 0 auto;
+    padding: 16px 0;
+}
+
+/* App Page */
+.app-page {
+    width: 100%;
+}
+
+.app-header {
+    margin-bottom: 20px;
+}
+
+.breadcrumbs {
+    font-size: 12px;
+    color: #56707f;
+    margin-bottom: 10px;
+}
+
+.app-title h1 {
+    font-size: 26px;
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* App Content Layout */
+.app-content {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.app-left-column {
+    width: 616px;
+}
+
+.app-right-column {
+    width: 308px;
+}
+
+/* Highlight Trailer */
+.highlight-trailer {
+    margin-bottom: 20px;
+}
+
+.highlight-player {
+    margin-bottom: 5px;
+    position: relative;
+}
+
+.highlight-strip {
+    display: flex;
+    height: 69px;
+    gap: 5px;
+}
+
+.highlight-selector {
+    flex-grow: 1;
+    height: 69px;
+    background-color: #2a475e;
+    border: 1px solid #000;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    position: relative;
+}
+
+.highlight-selector:hover {
+    background-color: #3a5a75;
+}
+
+.highlight-selector.selected {
+    background-color: #3a5a75;
+    border: 1px solid #67c1f5;
+}
+
+/* Game Description */
+.game-description {
+    margin-bottom: 30px;
+    background: linear-gradient(to bottom, rgba(32, 55, 82, 0.5) 0%, rgba(17, 26, 38, 0.5) 80%);
+    padding: 16px;
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.game-description p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+/* System Requirements */
+.sys-reqs {
+    background: linear-gradient(to bottom, rgba(32, 55, 82, 0.5) 0%, rgba(17, 26, 38, 0.5) 80%);
+    padding: 16px;
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.sys-reqs-columns {
+    display: flex;
+    gap: 20px;
+}
+
+.sys-reqs-min, .sys-reqs-rec {
+    flex: 1;
+}
+
+.sys-reqs h3 {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #67c1f5;
+}
+
+.sys-reqs ul {
+    list-style: none;
+    margin-left: 0;
+}
+
+.sys-reqs li {
+    margin-bottom: 8px;
+}
+
+/* Game Purchase */
+.game-purchase {
+    background: linear-gradient(to bottom, #365778 0%, #1b2838 100%);
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+.game-header-image {
+    height: 150px;
+    background-color: #1b2838;
+    overflow: hidden;
+    border-radius: 4px 4px 0 0;
+}
+
+.game-purchase-price {
+    padding: 16px;
+    text-align: center;
+}
+
+.game-purchase-price h1 {
+    font-size: 22px;
+    color: #a4d007;
+    margin-bottom: 10px;
+}
+
+.btn-download {
+    display: inline-block;
+    background: linear-gradient(to bottom, #799905 0%, #536904 100%);
+    padding: 8px 20px;
+    color: #fff;
+    border-radius: 2px;
+    font-weight: bold;
+    font-size: 16px;
+    border: 1px solid #000;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
+    text-transform: uppercase;
+}
+
+.btn-download:hover {
+    background: linear-gradient(to bottom, #8cb105 0%, #739104 100%);
+    text-decoration: none;
+    color: #fff;
+}
+
+/* Right Column Blocks */
+.block {
+    background: rgba(0, 0, 0, 0.2);
+    margin-bottom: 16px;
+    border-radius: 4px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+}
+
+.block-header {
+    background: linear-gradient(to right, #365778 0%, #1b2838 100%);
+    padding: 8px 16px;
+    border-radius: 4px 4px 0 0;
+}
+
+.block-header h4 {
+    font-size: 14px;
+    color: #67c1f5;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.block-content {
+    padding: 12px 16px;
+}
+
+.app-tag {
+    display: inline-block;
+    background: rgba(58, 120, 177, 0.5);
+    padding: 4px 8px;
+    border-radius: 2px;
+    margin: 0 5px 5px 0;
+    color: #67c1f5;
+    font-size: 12px;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.app-tag:hover {
+    background: rgba(58, 120, 177, 0.8);
+    text-decoration: none;
+    color: #fff;
+}
+
+.date {
+    color: #8f98a0;
+}
+
+/* Reviews */
+.app-reviews {
+    background: linear-gradient(to bottom, rgba(32, 55, 82, 0.5) 0%, rgba(17, 26, 38, 0.5) 80%);
+    padding: 16px;
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    margin-bottom: 30px;
+}
+
+.review-summary {
+    margin-bottom: 20px;
+    padding: 10px;
+    background: rgba(38, 64, 95, 0.6);
+    border-radius: 3px;
+}
+
+.rating-text {
+    color: #66C0F4;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.rating-subtitle {
+    color: #8BA5B7;
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+.review-box {
+    background: rgba(38, 64, 95, 0.6);
+    margin-bottom: 16px;
+    padding: 12px;
+    border-radius: 3px;
+}
+
+.review-content {
+    display: flex;
+}
+
+.review-persona {
+    width: 180px;
+    padding-right: 16px;
+}
+
+.persona-avatar {
+    width: 42px;
+    height: 42px;
+    margin-bottom: 8px;
+}
+
+.persona-name {
+    font-size: 14px;
+    color: #c1dbf4;
+}
+
+.review-text {
+    flex-grow: 1;
+}
+
+.review-rating {
+    color: #8BC53F;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.review-hours {
+    color: #8BA5B7;
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+
+/* Footer */
+#footer {
+    background: #171a21;
+    padding: 20px 0;
+    border-top: 1px solid #36404d;
+}
+
+.footer-content {
+    width: 940px;
+    margin: 0 auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.footer-logo {
+    width: 88px;
+    height: 25px;
+    margin-bottom: 16px;
+}
+
+.footer-text {
+    color: #8F98A0;
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+
+.footer-links {
+    color: #C6D4DF;
+    font-size: 12px;
+}

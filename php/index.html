@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter-Strike: Global Offensive on Steam</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Additional styles for static placeholders */
+        .logo-placeholder {
+            background-color: #171a21;
+            color: #66c0f4;
+            width: 176px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .steam-logo {
+            background-color: #171a21;
+            color: #66c0f4;
+            font-weight: bold;
+            font-size: 18px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .video-thumbnail {
+            background-color: #1e3c68;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            height: 100%;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .csgo-header {
+            background-color: #27374e;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 24px;
+            height: 100%;
+        }
+
+        .avatar-placeholder {
+            background-color: #3e7eA7;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            width: 42px;
+            height: 42px;
+        }
+
+        .valve-logo {
+            background-color: #171a21;
+            color: #8F98A0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            width: 88px;
+            height: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div id="global-header">
+        <div class="content">
+            <div class="logo">
+                <a href="#"><div class="logo-placeholder">STEAM</div></a>
+            </div>
+            <div class="menu">
+                <a href="#" class="active">STORE</a>
+                <a href="#">LIBRARY</a>
+                <a href="#">COMMUNITY</a>
+                <a href="#">ABOUT</a>
+                <a href="#">SUPPORT</a>
+            </div>
+            <div class="global-actions">
+                <div class="install-steam">
+                    <a href="#">Install Steam</a>
+                </div>
+                <div class="user-actions">
+                    <a href="#">login</a> | <a href="#">language</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="main-content">
+        <div class="store-nav">
+            <div class="store-nav-inner">
+                <div class="store-nav-left">
+                    <a href="#">Your Store</a>
+                    <a href="#">New Releases</a>
+                    <a href="#">Categories</a>
+                    <a href="#">News</a>
+                    <a href="#">Recommended</a>
+                </div>
+                <div class="store-nav-right">
+                    <div class="search">
+                        <input type="text" placeholder="search the store">
+                        <button class="btn-search"></button>
+                    </div>
+                    <div class="cart">
+                        <a href="#" class="cart-btn"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="app-page">
+            <div class="app-header">
+                <div class="breadcrumbs">
+                    <a href="#">All Games</a> &gt; <a href="#">Action Games</a> &gt; <a href="#">Counter-Strike: Global Offensive</a>
+                </div>
+                <div class="app-title">
+                    <h1>Counter-Strike: Global Offensive</h1>
+                </div>
+            </div>
+
+            <div class="app-content">
+                <div class="app-left-column">
+                    <div class="highlight-trailer">
+                        <div class="highlight-player">
+                            <div class="placeholder-video">COUNTER-STRIKE: GLOBAL OFFENSIVE TRAILER</div>
+                        </div>
+                        <div class="highlight-strip">
+                            <div class="highlight-selector selected">
+                                <div class="video-thumbnail">TRAILER</div>
+                            </div>
+                            <div class="highlight-selector">
+                                <div class="video-thumbnail">DUST II</div>
+                            </div>
+                            <div class="highlight-selector">
+                                <div class="video-thumbnail">INFERNO</div>
+                            </div>
+                            <div class="highlight-selector">
+                                <div class="video-thumbnail">MATCH</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="game-description">
+                        <h2>About This Game</h2>
+                        <p>Counter-Strike: Global Offensive (CS:GO) expands upon the team-based action gameplay that it pioneered when it was launched 19 years ago.</p>
+                        <p>CS:GO features new maps, characters, weapons, and game modes, and delivers updated versions of the classic CS content (de_dust2, etc.).</p>
+                        <p>"Counter-Strike took the gaming industry by surprise when the unlikely MOD became the most played online PC action game in the world almost immediately after its release in August 1999," said Doug Lombardi at Valve. "For the past 12 years, it has continued to be one of the most-played games in the world, headline competitive gaming tournaments and selling over 25 million units worldwide across the franchise. CS:GO promises to expand on CS' award-winning gameplay and deliver it to gamers on the PC as well as the next gen consoles and the Mac."</p>
+                    </div>
+
+                    <div class="sys-reqs">
+                        <h2>System Requirements</h2>
+                        <div class="sys-reqs-columns">
+                            <div class="sys-reqs-min">
+                                <h3>MINIMUM:</h3>
+                                <ul>
+                                    <li><strong>OS:</strong> Windows® 7/Vista/XP</li>
+                                    <li><strong>Processor:</strong> Intel® Core™ 2 Duo E6600 or AMD Phenom™ X3 8750 processor or better</li>
+                                    <li><strong>Memory:</strong> 2 GB RAM</li>
+                                    <li><strong>Graphics:</strong> Video card must be 256 MB or more and should be a DirectX 9-compatible with support for Pixel Shader 3.0</li>
+                                    <li><strong>DirectX:</strong> Version 9.0c</li>
+                                    <li><strong>Storage:</strong> 15 GB available space</li>
+                                </ul>
+                            </div>
+                            <div class="sys-reqs-rec">
+                                <h3>RECOMMENDED:</h3>
+                                <ul>
+                                    <li><strong>OS:</strong> Windows® 7/Vista/XP</li>
+                                    <li><strong>Processor:</strong> Intel® Core™ 2 Duo E6600 or AMD Phenom™ X3 8750 processor or better</li>
+                                    <li><strong>Memory:</strong> 4 GB RAM</li>
+                                    <li><strong>Graphics:</strong> Video card must be 256 MB or more and should be a DirectX 9-compatible with support for Pixel Shader 3.0</li>
+                                    <li><strong>DirectX:</strong> Version 9.0c</li>
+                                    <li><strong>Storage:</strong> 15 GB available space</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="app-right-column">
+                    <div class="game-purchase">
+                        <div class="game-header-image">
+                            <div class="csgo-header">CS:GO</div>
+                        </div>
+                        <div class="game-purchase-price">
+                            <h1>FREE TO PLAY</h1>
+                            <div class="game-purchase-action">
+                                <div class="btn-action">
+                                    <a href="#" class="btn-download">Download</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="block">
+                        <div class="block-header">
+                            <h4>CATEGORIES</h4>
+                        </div>
+                        <div class="block-content">
+                            <a href="#" class="app-tag">Action</a>
+                            <a href="#" class="app-tag">Free to Play</a>
+                            <a href="#" class="app-tag">FPS</a>
+                            <a href="#" class="app-tag">Multiplayer</a>
+                            <a href="#" class="app-tag">Competitive</a>
+                            <a href="#" class="app-tag">Shooter</a>
+                            <a href="#" class="app-tag">Tactical</a>
+                            <a href="#" class="app-tag">Team-Based</a>
+                            <a href="#" class="app-tag">e-sports</a>
+                        </div>
+                    </div>
+
+                    <div class="block">
+                        <div class="block-header">
+                            <h4>RELEASE DATE</h4>
+                        </div>
+                        <div class="block-content">
+                            <div class="date">21 Aug, 2012</div>
+                        </div>
+                    </div>
+
+                    <div class="block">
+                        <div class="block-header">
+                            <h4>DEVELOPER</h4>
+                        </div>
+                        <div class="block-content">
+                            <a href="#">Valve</a>
+                        </div>
+                    </div>
+
+                    <div class="block">
+                        <div class="block-header">
+                            <h4>PUBLISHER</h4>
+                        </div>
+                        <div class="block-content">
+                            <a href="#">Valve</a>
+                        </div>
+                    </div>
+
+                    <div class="block">
+                        <div class="block-header">
+                            <h4>POPULAR USER-DEFINED TAGS FOR THIS PRODUCT</h4>
+                        </div>
+                        <div class="block-content">
+                            <a href="#" class="app-tag">FPS</a>
+                            <a href="#" class="app-tag">Shooter</a>
+                            <a href="#" class="app-tag">Multiplayer</a>
+                            <a href="#" class="app-tag">Competitive</a>
+                            <a href="#" class="app-tag">Action</a>
+                            <a href="#" class="app-tag">Team-Based</a>
+                            <a href="#" class="app-tag">Tactical</a>
+                            <a href="#" class="app-tag">First-Person</a>
+                            <a href="#" class="app-tag">e-sports</a>
+                            <a href="#" class="app-tag">Military</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="app-reviews">
+                <div class="review-header">
+                    <h2>CUSTOMER REVIEWS</h2>
+                </div>
+                <div class="review-summary">
+                    <div class="summary-rating">
+                        <span class="rating-text">Very Positive</span>
+                        <span class="rating-subtitle">(2,376,144 reviews)</span>
+                    </div>
+                </div>
+                <div class="review-display">
+                    <div class="review-box">
+                        <div class="review-content">
+                            <div class="review-persona">
+                                <div class="avatar-placeholder">USER</div>
+                                <div class="persona-name">xXGamer1337Xx</div>
+                            </div>
+                            <div class="review-text">
+                                <div class="review-rating">Recommended</div>
+                                <div class="review-hours">1,562 hrs on record</div>
+                                <div class="review-description">
+                                    <p>Rush B don't stop! Best competitive shooter ever made.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-box">
+                        <div class="review-content">
+                            <div class="review-persona">
+                                <div class="avatar-placeholder">USER</div>
+                                <div class="persona-name">FragMasterFlex</div>
+                            </div>
+                            <div class="review-text">
+                                <div class="review-rating">Recommended</div>
+                                <div class="review-hours">2,241 hrs on record</div>
+                                <div class="review-description">
+                                    <p>The definitive competitive FPS. After all these years, it's still the gold standard.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <div class="valve-logo">VALVE</div>
+            </div>
+            <div class="footer-text">
+                <p>© 2016 Valve Corporation. All rights reserved. All trademarks are property of their respective owners in the US and other countries.</p>
+                <p>VAT included in all prices where applicable.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">About Valve</a> |
+                <a href="#">Steamworks</a> |
+                <a href="#">Jobs</a> |
+                <a href="#">Steam Distribution</a> |
+                <a href="#">Support</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
