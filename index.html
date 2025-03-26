@@ -78,26 +78,86 @@
             border-radius: 5px;
             margin-top: 10px;
         }
+
+        .green-gradient-header {
+            background: linear-gradient(to right, #00b09b, #96c93d);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-content {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            width: 300px;
+            text-align: center;
+        }
+
+        .close-popup {
+            cursor: pointer;
+            float: right;
+        }
     </style>
 </head>
 <body>
+    <!-- Login Popup -->
+    <div id="login-popup" class="popup-overlay">
+        <div class="popup-content">
+            <div class="popup-header">
+                <h3>Sign In</h3>
+                <span class="close-popup">&times;</span>
+            </div>
+            <div class="popup-body">
+                <div id="login-box">
+                    <div class="login-form">
+                        <input type="text" id="username" placeholder="Username" class="account-input">
+                        <input type="password" id="password" placeholder="Password" class="account-input">
+                        <button id="login-button" class="account-button">Login</button>
+                    </div>
+                </div>
+                <div id="logged-in-box" style="display:none;">
+                    <div class="green-gradient">
+                        <p>Welcome, <span id="display-username">User</span>!</p>
+                        <p>Account in good standing</p>
+                        <p>VAC Status: Clean</p>
+                    </div>
+                    <button id="logout-button" class="account-button">Logout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div id="global-header">
         <div class="content">
             <div class="logo">
                 <a href="#"><div class="logo-placeholder">STEAM</div></a>
             </div>
             <div class="menu">
-                <a href="#">PERFORMANCE</a>
+                <a href="http://fragmount.org/performance.html">PERFORMANCE</a>
                 <a href="#">COMMUNITY</a>
-                <a href="#">SERVERS</a>
-                <a href="#">SUPPORT</a>
+                <a href="http://fragmount.org/servers.html">SERVERS</a>
+                <a href="http://fragmount.org/support.html">SUPPORT</a>
             </div>
             <div class="global-actions">
                 <div class="install-steam">
                     <a href="#">Install Steam</a>
                 </div>
                 <div class="user-actions">
-                    <a href="#">login</a> | <a href="#">language</a>
+                    <a href="#" id="login-trigger">login</a> | <a href="#">language</a>
                 </div>
             </div>
         </div>
@@ -107,11 +167,11 @@
         <div class="store-nav">
             <div class="store-nav-inner">
                 <div class="store-nav-left">
-                    <a href="#">Updates</a>
-                    <a href="#">Operations</a>
-                    <a href="#">Tournaments</a>
-                    <a href="#">News</a>
-                    <a href="#">Discord</a>
+                    <a href="http://fragmount.org/updates.html">UPDATES</a>
+                    <a href="http://fragmount.org/operations.html">OPERATIONS</a>
+                    <a href="#">TOURNAMENTS</a>
+                    <a href="#">NEWS</a>
+                    <a href="#">DISCORD</a>
                 </div>
                 <div class="store-nav-right">
                     <div class="search">
@@ -193,6 +253,24 @@
                     </div>
 
                     <div class="block">
+                        <div class="block-header green-gradient-header">
+                            <h4>POPULAR USER-DEFINED TAGS FOR THIS PRODUCT</h4>
+                        </div>
+                        <div class="block-content">
+                            <a href="#" class="app-tag">FPS</a>
+                            <a href="#" class="app-tag">Shooter</a>
+                            <a href="#" class="app-tag">Multiplayer</a>
+                            <a href="#" class="app-tag">Competitive</a>
+                            <a href="#" class="app-tag">Action</a>
+                            <a href="#" class="app-tag">Team-Based</a>
+                            <a href="#" class="app-tag">Tactical</a>
+                            <a href="#" class="app-tag">First-Person</a>
+                            <a href="#" class="app-tag">e-sports</a>
+                            <a href="#" class="app-tag">Military</a>
+                        </div>
+                    </div>
+
+                    <div class="block">
                         <div class="block-header">
                             <h4>RELEASE DATE</h4>
                         </div>
@@ -224,21 +302,15 @@
                             <h4>ACCOUNT STATUS</h4>
                         </div>
                         <div class="block-content">
-                            <div class="account-status">
-                                <div id="login-box">
-                                    <div class="login-form">
-                                        <input type="text" id="username" placeholder="Username" class="account-input">
-                                        <input type="password" id="password" placeholder="Password" class="account-input">
-                                        <button id="login-button" class="account-button">Login</button>
-                                    </div>
+                            <div class="account-status-display">
+                                <div id="status-not-logged-in">
+                                    <p>Not logged in.</p>
+                                    <button id="header-login-button" class="account-button">Login</button>
                                 </div>
-                                <div id="logged-in-box" style="display:none;">
-                                    <div class="green-gradient">
-                                        <p>Welcome, <span id="display-username">User</span>!</p>
-                                        <p>Account in good standing</p>
-                                        <p>VAC Status: Clean</p>
-                                    </div>
-                                    <button id="logout-button" class="account-button">Logout</button>
+                                <div id="status-logged-in" style="display:none;">
+                                    <p>Logged in as: <span id="header-username">User</span></p>
+                                    <p>VAC Status: Clean</p>
+                                    <button id="header-logout-button" class="account-button">Logout</button>
                                 </div>
                             </div>
                         </div>
